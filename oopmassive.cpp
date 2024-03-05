@@ -2,25 +2,27 @@
 
 #include <iostream>
 #include <std.lib>
+#include<vector.lib>
 
+template<typename Type>
 
 class Array
 {
     
     private:
-           int* data;
+           type* data;
             size_t size;
      
     public:
         //default constructor
         Array(){
-            data = (int*)malloc(10 * sizeof(int));
+            data = (type*)malloc(10 * sizeof(type));
             size = 10;
         }
         
         //constructor
         Array(size_t s){
-            data = (int*)malloc(s * sizeof(int));
+            data = (int*)malloc(s * sizeof(type));
             size = s;}
             ~Array(){
                 free(data);
@@ -32,7 +34,7 @@ class Array
         
         //constcopy
         Array(const Array& that){
-           this ->  data = (int*)malloc(that.size * sizeof(int));
+           this ->  data = (type*)malloc(that.size * sizeof(type));
             size = that.size;
             for(size t i = 0; i < size; i++){
                 this->data[i] = that.data[i];
@@ -70,6 +72,7 @@ Array sqr(Array in){
 
 int main()
 {
+    Array<int> a[10];
     Array a(10);
     int sum = sqr(x);
     
